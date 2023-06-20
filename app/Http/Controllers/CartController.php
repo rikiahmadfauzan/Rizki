@@ -26,11 +26,11 @@ class CartController extends Controller
 
      function create(Request $req, $id){
         $menu = Menu::where('idMenu', $id)->first();
+        // $status = 0;
         //halaman cart
         Cart::updateOrCreate(
             ['idMenu' => $id],
-            ['idMenu' => $id, 'status' => 0],
-            ['idMenu' => $id, 'jumlah' => $req->jumlah, 'totalHarga' => $menu->harga*$req->jumlah]
+            ['id' => $id,'status' => 0, 'jumlah' => $req->jumlah, 'totalHarga' => $menu->harga*$req->jumlah]
         );
         return redirect('cart');
 

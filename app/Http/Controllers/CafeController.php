@@ -7,7 +7,6 @@ use App\Models\Menu;
 use Illuminate\Support\Facades\DB;
 use App\Models\Cart;
 use App\Models\Pesanan;
-use App\Models\Custumer;
 
 
 class CafeController extends Controller
@@ -20,7 +19,6 @@ class CafeController extends Controller
         return view('cafe', $data);
     }
     function all() {
-        $data['custumer'] = Custumer::first();
         $data['carts'] = Cart::all()->count();
         $data['menu'] = Menu::all();
         return view('allproduct', $data);
@@ -35,13 +33,12 @@ class CafeController extends Controller
     function minuman(){
         $data['carts'] = Cart::all()->count();
         $data['menu'] = Menu::where('kategori', 'minuman')->get();
-        return view('makanan', $data);
+        return view('minuman', $data);
 
 
     }
     function editview($id){
         $data['carts'] = Cart::all()->count();
-        $data['custumer'] = Custumer::all();
         $data['menu'] = Menu::find($id);
         return view('viewoption',$data);
      }

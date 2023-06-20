@@ -13,6 +13,7 @@ class Cart extends Model
 
     protected $fillable =[
         'idMenu',
+        'status',
         'jumlah',
         'totalHarga'
 ];
