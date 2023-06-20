@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('cart', function (Blueprint $table) {
             $table->id();
+            $table->string('status');
             $table->string('idMenu');
             $table->integer('jumlah');
             $table->integer('totalHarga');

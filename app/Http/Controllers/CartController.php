@@ -12,6 +12,7 @@ use Carbon\Carbon;
 
 class CartController extends Controller
 {
+
     function show(){
 
         $data['pesanan'] = Pesanan::all();
@@ -28,6 +29,7 @@ class CartController extends Controller
         //halaman cart
         Cart::updateOrCreate(
             ['idMenu' => $id],
+            ['idMenu' => $id, 'status' => 0],
             ['idMenu' => $id, 'jumlah' => $req->jumlah, 'totalHarga' => $menu->harga*$req->jumlah]
         );
         return redirect('cart');
