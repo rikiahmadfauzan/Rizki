@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('address');
             $table->string('payment');
+            $table->string('noCard');
             $table->date('tanggal');
             $table->integer('total');
             $table->string('kode');

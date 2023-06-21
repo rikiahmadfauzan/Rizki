@@ -70,6 +70,8 @@
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-3">
                                             <p class="lead fw-normal mb-2">{{ $item->namaMenu }}</p>
+                                            <label for="">{{ $item->kategori }}</label><br>
+                                            <label for="">Price : {{ $item->harga }}</label>
                                         </div>
 
                                         <div class="col-md-5 col-lg-5 col-xl-2 d-flex">
@@ -90,7 +92,7 @@
                             <h5 class="mb-0">Rp. {{number_format($item->totalHarga) }}</h5>
                         </div>
                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                            <a href="/cart/hapus/{{ $item->id }}" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="/cart/hapus/{{ $item->id }}" class="btn btn-danger btn-sm">Delete</i></a>
                         </div>
                 </div>
             </div>

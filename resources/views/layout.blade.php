@@ -35,12 +35,12 @@
         <div class="container-fluid page-body-wrapper">
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="/home">
                             <i class="mdi mdi-home menu-icon"></i>
                             <span class="menu-title">Home</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="/menu">
                             <i class="mdi mdi-equal-box
@@ -48,14 +48,14 @@
                             <span class="menu-title">Menu</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/custumer">
+                    {{-- <li class="nav-item">
+                        <a class="nav-link" href="/pesanan">
                             <i class="mdi mdi-account-multiple-outline menu-icon"></i>
                             <span class="menu-title">Custumer</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href=transakasi">
+                        <a class="nav-link" href=/">
                             <i class="mdi mdi-cash-multiple menu-icon"></i>
                             <span class="menu-title">Transaksi</span>
                         </a>
@@ -76,6 +76,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     @yield('content')
+                                {{-- <h5>Selamat Datang {{ Auth::user()->name }}</h5> --}}
                                 </div>
                             </div>
                         </div>

@@ -20,6 +20,7 @@ class Pesanan extends Model
         'email',
         'address',
         'payment',
+        'noCard',
         'tanggal',
         'total'
 

@@ -14,7 +14,6 @@ class CartController extends Controller
 {
 
     function show(){
-
         $data['pesanan'] = Pesanan::all();
         $data['menu'] = Menu::first();
         $data['cart'] = DB::table('cart')->join('menu', 'menu.idMenu', '=', 'cart.idMenu')->get();
@@ -25,22 +24,25 @@ class CartController extends Controller
 
 
      function create(Request $req, $id){
-        $menu = Menu::where('idMenu', $id)->first();
-        // $status = 0;
-        //halaman cart
-        Cart::updateOrCreate(
-            ['idMenu' => $id],
-            ['id' => $id,'status' => 0, 'jumlah' => $req->jumlah, 'totalHarga' => $menu->harga*$req->jumlah]
-        );
-        return redirect('cart');
+        $pesanan = Cart::where('status',0)->first();
+        // if (empty($pesanan)){
+            $menu = Menu::where('idMenu', $id)->first();
+            Cart::updateOrCreate(
+                ['idMenu' => $id],
+                ['idMenu' => $id,'status' => 0, 'jumlah' => $req->jumlah, 'totalHarga' => $menu->harga*$req->jumlah]
+            );
+            return redirect('cart');
+        // }
+
 
     }
 
+// function pesan(){
 
+// }
      function chekout(Request $req, $id, $kode, $total){
         $cart = Cart::all();
         $tanggal = Carbon::now();
-
 
          //halaman pembeli
        foreach ($cart as $key => $value){
@@ -53,13 +55,19 @@ class CartController extends Controller
             'email' => $req->email,
             'address' => $req->address,
             'payment' => $req->payment,
+            'noCard' => $req->noCard,
             'tanggal' => $tanggal,
             'total' => $total
 
         ]);
+        $pesanan = Cart::where('status',0)->first();
+        $pesanan->status = 1;
+        $pesanan->update();
+
+        return redirect('https://wa.me/62852955792274?text=kode :'.$id. 'nama :'.$req->firstName. 'alamat :'.$req->address. 'total :' .$total);
 
        }
-       return redirect::to('https://wa.me/6285295792274?text=nama');
+
 
      }
      function delete($id){

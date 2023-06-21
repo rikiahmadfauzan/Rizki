@@ -38,6 +38,12 @@
                 <div class="form-group">
                   <input type="password" class="form-control form-control-lg" name="password" placeholder="Password">
                 </div>
+                <div class="form-group">                    <select class="form-select" name="level" id="level">
+                        <option value="level">Level</option>
+                        <option value="admin">admin</option>
+                        <option value="member">member</option>
+                    </select>
+                </div>
                 <div class="mt-3">
                     <button type="submit" class="btn btn-sm mb-3 btn-primary col col-12">SIGN UP</button>
                 </div>

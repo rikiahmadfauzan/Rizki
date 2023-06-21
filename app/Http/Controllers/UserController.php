@@ -14,7 +14,12 @@ class UserController extends Controller
     $credentials = $request->only('email', 'password');
 
     if(Auth::attempt($credentials)){
-        return redirect('admin');
+        if (Auth::user()->level === "admin"){
+            return redirect('admin');
+        }else if (Auth::user()->level === "member"){
+            return redirect('cafe');
+        }
+    
     }
     return redirect()->back();
    }
@@ -29,7 +34,9 @@ class UserController extends Controller
         $validate = $this->validate($request, [
             'name' => 'required|string',
             'email' => 'required|email',
+            'level' => 'required',
             'password' => 'required|min:5'
+
         ]);
         $validate['password'] = bcrypt($request->password);
 

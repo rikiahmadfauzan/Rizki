@@ -101,6 +101,8 @@ Route::post('/cart/create/{kode}', [CartController::class, 'create']);
 Route::get('/cart/hapus/{id}', [CartController::class, 'delete']);
 Route::get('cart/edit/{id}', [CartController::class, 'edit']);
 Route::post('/chekout/create/{id}/{kode}/{total}', [CartController::class, 'chekout']);
+Route::post('/pesan/create/{kode}', [CartController::class, 'pesan']);
+
 
 
 
